@@ -7,7 +7,7 @@ describe "update a park route", :type => :request do
   end
 
   it 'returns the park name' do
-    expect(JSON.parse(response.body)['park_name']).to eq('test_name')
+    expect(JSON.parse(response.body)['park_name']).to eq('Test Name')
   end
 
   it 'returns the park description' do
@@ -19,11 +19,11 @@ describe "update a park route", :type => :request do
   end
 
   it 'returns the park city' do
-    expect(JSON.parse(response.body)['city']).to eq('test_city')
+    expect(JSON.parse(response.body)['city']).to eq('Test City')
   end
 
   it 'returns the park description' do
-    expect(JSON.parse(response.body)['state']).to eq('test_state')
+    expect(JSON.parse(response.body)['state']).to eq('Test State')
   end
 
   it 'returns a created status' do

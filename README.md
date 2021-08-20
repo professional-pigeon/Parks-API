@@ -37,7 +37,7 @@ This is an API to test routes and search parks
 * Navigate to the top level of the directory and run "bundle install" in your terminal to install dependencies
 * Run "rake db:create" and then "rake db:migrate" to create a database and migrate tables.
 * Run "rake db:seed" to create instances of the Park object you can query.
-* Open Postman and make requests to the rails server you started (localhost:3000 is the default)
+* Open Postman and make requests to the rails server you started (localhost:3000 is the default and is referenced in the documentation below)
   - [Instructions for request types](#api-documentation)
 
 ## API Documentation
