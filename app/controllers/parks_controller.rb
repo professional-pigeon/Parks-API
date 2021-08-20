@@ -1,15 +1,8 @@
 class ParksController < ApplicationController
   def index
-    @parks = ""
-    if params[:state] && params[:park_type]
-      @parks = Park.state_search(params[:state]).type_search(params[:park_type])
-    elsif params[:state]
-      @parks = Park.state_search(params[:state])
-    elsif params[:park_type]
-      @parks = Park.type_search(params[:park_type])
-    else
-      @parks = Park.all
-    end
+    state = params[:state]
+    type = params[:park_type]
+    @parks = search_state_type(state, type)
     page_display(@parks)
   end
 
