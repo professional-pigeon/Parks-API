@@ -16,7 +16,7 @@ class Seed
 
   def generate_parks
     ticker = 2
-    20.times do |i|
+    200.times do |i|
       if ticker % 2 == 0
         state_national = "State park"
       else
