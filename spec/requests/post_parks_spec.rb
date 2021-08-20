@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "post a park route", :type => :request do
+describe "update a park route", :type => :request do
 
   before do
     post '/parks', params: { :park_name => 'test_name', :description => 'test_description', :park_type => "National Park", :state => 'test_state', :city => 'test_city', }
@@ -28,16 +28,5 @@ describe "post a park route", :type => :request do
 
   it 'returns a created status' do
     expect(response).to have_http_status(:created)
-  end
-end
-
-describe "post a park route, get an error for incomplete", :type => :request do
-  
-  before do
-    post '/parks', params: {:park_name => 'Wibble wobble' }
-  end
-
-  it 'returns an error' do
-    expect(response).to have_http_status(:partial_content)
   end
 end
