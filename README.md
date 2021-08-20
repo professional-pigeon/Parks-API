@@ -22,6 +22,7 @@
 * [Postgresql](https://www.postgresql.org/)
 * [Rails](https://rubyonrails.org/)
 * [Ruby Gems](https://rubygems.org/)
+* [Postman](https://www.postman.com/)
 
 ## Description
 
@@ -32,7 +33,7 @@ This is an API to test routes and search parks
 * Ruby is required, follow the download instructions here [Ruby](https://www.ruby-lang.org/en/)
 * Install bundler in your terminal with "gem install bundler"
 * Install postgres if not already installed and run the terminal command "postgres" to open a SQL server.
-* Download database from github repository
+* Download database from github repository[Park API](https://github.com/professional-pigeon/Parks-API)
 * Navigate to the top level of the directory and run "bundle install" in your terminal to install dependencies
 * Run "rake db:create" and then "rake db:migrate" to create a database and migrate tables.
 * Run "rake db:seed" to create instances of the Park object you can query.
@@ -51,7 +52,7 @@ Get Routes
         * ex GET "http://localhost:3000/parks/148?park_type=State Park&state=Wisconsin"
       * You can paginate the results by selecting the page of results to view a page has 20 results.
         * ex GET "http://localhost:3000/parks?page=2"
-  * Get an individual Park GET "http://localhost:3000/parks/(park id)"
+  * Get an individual Park by it's id: GET "http://localhost:3000/parks/(park id)"
 
 Post Routes
   * To create a park use a post request and pass in all required params as key-value values
