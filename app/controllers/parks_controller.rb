@@ -34,6 +34,11 @@ class ParksController < ApplicationController
     end
   end
 
+  def random
+    @response = Park.random_park
+    json_response(@response)
+  end
+
   private
   def park_params
     params.permit(:park_name, :park_type, :state, :city, :description)
