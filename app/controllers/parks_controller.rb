@@ -10,7 +10,7 @@ class ParksController < ApplicationController
   end
 
   def create
-    @parks = Park.create(park_params)
+    @parks = Park.create!(park_params)
     json_response(@parks)
   end
 
@@ -25,10 +25,6 @@ class ParksController < ApplicationController
   end
 
   private
-  def json_response(object, status = :ok)
-    render json: object, status: status
-  end
-
   def park_params
     params.permit(:park_name, :park_type, :state, :city, :description)
   end
