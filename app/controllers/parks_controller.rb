@@ -1,6 +1,15 @@
 class ParksController < ApplicationController
   def index
-    @parks = Park.all
+    @parks = ""
+    if params[:state] && params[:park_type]
+      @parks = Park.state_search(params[:state]).type_search(params[:park_type])
+    elsif params[:state]
+      @parks = Park.state_search(params[:state])
+    elsif params[:park_type]
+      @parks = Park.type_search(params[:park_type])
+    else
+      @parks = Park.all
+    end
     json_response(@parks)
   end
 
