@@ -31,3 +31,20 @@ describe "get a park or search route", :type => :request do
   end
 
 end
+
+describe "get a park by state", :type => :request do
+
+  before do
+    park = Park.create!({ :park_name => 'test_name', :description => 'test_description', :park_type => "National Park", :state => 'wisconsin', :city => 'test_city', })
+    get "/parks?state=wisconsin"
+  end
+
+  it 'returns the park name at that id' do
+    expect(JSON.parse(response.body)[0]['state']).to eq('Wisconsin')
+  end
+
+  it 'returns status code 200' do
+    expect(response).to have_http_status(:success)
+  end
+
+end
