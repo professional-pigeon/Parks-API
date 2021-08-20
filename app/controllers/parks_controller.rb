@@ -1,6 +1,6 @@
 class ParksController < ApplicationController
   def index
-    @parks = {"quotation": "The secret of getting ahead is getting started."}
+    @parks = Park.all
     json_response(@parks)
   end
 

@@ -9,13 +9,14 @@
 class Seed
 
   def self.begin
+    Park.destroy_all
     seed = Seed.new
     seed.generate_parks
   end
 
   def generate_parks
+    ticker = 2
     20.times do |i|
-      ticker = 2
       if ticker % 2 == 0
         state_national = "State park"
       else
@@ -27,7 +28,7 @@ class Seed
         state: Faker::Address.state,
         city: Faker::Address.city,
         park_type: state_national,
-        description: Faker::Lorem.words(number: 20)
+        description: Faker::Lorem.sentence(word_count: 20)
       )
     end
     puts "Parks created."
