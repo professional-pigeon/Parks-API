@@ -8,6 +8,7 @@
 - [Technologies Used](#technologies-used)
 - [Description](#description)
 - [Setup/Installation Requirements](#setup/installation-requirements)
+- [API Documentation](#api-documentation)
 - [License](#license)
 - [Contact Information](#contact-information)
 
@@ -34,9 +35,43 @@ This is an API to test routes and search parks
 * Download database from github repository
 * Navigate to the top level of the directory and run "bundle install" in your terminal to install dependencies
 * Run "rake db:create" and then "rake db:migrate" to create a database and migrate tables.
-* Run command "rake db:seed" to seed sample data and create and admin user. Admin account info is in the seed file, will be removed when website is live.
-* Run the site on your local machine using the terminal command "rails s" and navigate to localhost:3000 (or address provided when server starts)
-* To run tests run the command "rspec" in the root directory of the terminal.
+* Run "rake db:seed" to create instances of the Park object you can query.
+* Open Postman and make requests to the rails server you started (localhost:3000 is the default)
+  - [Instructions for request types](#api-documentation)
+
+## API Documentation
+
+Get Routes
+  * To get all Parks GET "http://localhost:3000/parks"
+    - There are a few custimizations for searching
+      * You can search by state, type of park, or both by passing the keys "state" and "park_type" into the keys value of you're search
+        * park_type only has two options "State Park" and "National Park"
+        * ex GET "http://localhost:3000/parks?state=wisconsin"
+      * You can paginate the results by selecting the page of results to view a page has 20 results.
+        * ex GET "http://localhost:3000/parks?page=2"
+  * Get an individual Park GET "http://localhost:3000/parks/(park id)"
+
+Post Routes
+  * To create a park use a post request and pass in all required params as key-value values
+  * Required params
+    - park_name => "String"
+    - park_type => "State Park" or "National Park"
+    - city => "String"
+    - state => "String"
+    - description => "String"
+  * You can pass the params in either the body or the header
+    - ex POST "http://localhost:3000/parks?park_name=Wibble Wobble&park_type=State Park&city=Eau Claire&state=Wisconsin&description=An unbalanced park next to the balanced Eau Claire"
+
+Patch routes
+  * To update a Park use a patch request and pass in any number of params as key-value pairs to change those vlaues.
+  * Must target an existing park
+  * You can pass the params in either the body or the header
+    - ex PATCH http://localhost:3000/parks/(Park id)?park_name=Wibble Wobble"
+
+Delete Routes
+  * Delete a route by targeting a specific Park with a delete request
+    - ex DELETE http://localhost:3000/parks/(Park id)
+
 
 ## License
 
