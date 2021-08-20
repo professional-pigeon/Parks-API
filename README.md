@@ -45,8 +45,10 @@ Get Routes
   * To get all Parks GET "http://localhost:3000/parks"
     - There are a few custimizations for searching
       * You can search by state, type of park, or both by passing the keys "state" and "park_type" into the keys value of you're search
-        * park_type only has two options "State Park" and "National Park"
+      * park_type only has two options "State Park" and "National Park"
         * ex GET "http://localhost:3000/parks?state=wisconsin"
+        * ex GET "http://localhost:3000/parks?park_type=state park"
+        * ex GET "http://localhost:3000/parks/148?park_type=State Park&state=Wisconsin"
       * You can paginate the results by selecting the page of results to view a page has 20 results.
         * ex GET "http://localhost:3000/parks?page=2"
   * Get an individual Park GET "http://localhost:3000/parks/(park id)"
