@@ -1,7 +1,7 @@
 class ParksController < ApplicationController
   def index
     @parks = {"quotation": "The secret of getting ahead is getting started."}
-    json_response(@quotes)
+    json_response(@parks)
   end
 
   private
