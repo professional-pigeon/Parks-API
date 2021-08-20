@@ -31,12 +31,13 @@ describe "post a park route", :type => :request do
   end
 end
 
-# describe "post a quote route", :type => :request do
-#   before do
-#     post '/quotes', params: {:content => 'test_content' }
-#   end
+describe "post a park route, get an error for incomplete", :type => :request do
+  
+  before do
+    post '/parks', params: {:park_name => 'Wibble wobble' }
+  end
 
-#   it 'returns an error' do
-#     expect(response).to have_http_status(:partial_content)
-#   end
-# end
+  it 'returns an error' do
+    expect(response).to have_http_status(:partial_content)
+  end
+end
