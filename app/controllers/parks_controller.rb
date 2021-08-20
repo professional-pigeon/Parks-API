@@ -10,7 +10,7 @@ class ParksController < ApplicationController
     else
       @parks = Park.all
     end
-    json_response(@parks)
+    page_display(@parks)
   end
 
   def show
