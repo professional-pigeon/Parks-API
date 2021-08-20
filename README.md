@@ -53,6 +53,7 @@ Get Routes
       * You can paginate the results by selecting the page of results to view a page has 20 results.
         * ex GET "http://localhost:3000/parks?page=2"
   * Get an individual Park by it's id: GET "http://localhost:3000/parks/(park id)"
+  * Get a random Park: GET http://localhost:3000/parks/random
 
 Post Routes
   * To create a park use a post request and pass in all required params as key-value values
