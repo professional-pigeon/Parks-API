@@ -18,10 +18,9 @@ class ParksController < ApplicationController
 
   def update
     @park = Park.find(params[:id])
-    @park.update(park_params)
     if @park.update(park_params)
       render status: 200, json: {
-        message: "This quote has been updated successfully"
+        message: "This park has been updated successfully"
         }
     end
   end
@@ -30,7 +29,7 @@ class ParksController < ApplicationController
     @park = Park.find(params[:id])
     if @park.destroy
       render status: 200, json: {
-        message: "This quote has been destroyed successfully"
+        message: "This park has been destroyed successfully"
         }
     end
   end
